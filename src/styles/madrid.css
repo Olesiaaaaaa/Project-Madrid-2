@@ -1,0 +1,258 @@
+/* =========================================
+   Стили для галереи и модального окна
+   Специально для страницы Madrid
+   ========================================= */
+
+/* =========================================
+   1. Галерея изображений
+   ========================================= */
+
+/* Карточка картинки */
+.gallery-item {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+/* Эффект при наведении: подъем + легкий поворот по часовой стрелке */
+.gallery-item:hover {
+  transform: translateY(-5px) rotate(3deg);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+  border-color: gold;
+  z-index: 10;
+}
+
+.gallery-item:hover .gallery-caption {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(139, 0, 0, 0.8)
+  );
+}
+
+/* Картинка внутри карточки */
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s ease;
+  filter: brightness(1.2) saturate(2.1); /* ✅ Картинка светлее и насыщеннее */
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* Подпись под картинкой */
+.gallery-caption {
+  padding: 14px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8em;
+  font-weight: 100;
+  font-style: normal;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(139, 0, 0, 0.6)
+  );
+  border-top: 1px solid gold;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.6;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Адаптивность галереи для планшетов */
+@media (max-width: 768px) {
+  .gallery-item {
+    width: 240px;
+  }
+
+  .gallery-item img {
+    height: 170px;
+  }
+
+  .gallery-caption {
+    font-size: 0.85em;
+    min-height: 65px;
+  }
+}
+
+/* Адаптивность галереи для мобильных */
+@media (max-width: 480px) {
+  .gallery-item {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .gallery-item img {
+    height: 180px;
+  }
+
+  .gallery-caption {
+    padding: 12px;
+    font-size: 0.85em;
+    min-height: 60px;
+  }
+}
+
+/* =========================================
+   2. Модальное окно (Lightbox)
+   ========================================= */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 1200px;
+  width: 95%;
+  margin: auto;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 0, 0, 0.8),
+    rgba(0, 0, 139, 0.8)
+  );
+  border-radius: 15px;
+  border: 2px solid gold;
+  border-top: 3px solid gold;
+  box-shadow: 0 10px 50px rgba(255, 215, 0, 0.5);
+  animation: modalFadeIn 0.3s ease;
+  padding: 15px 15px 0 15px;
+  overflow: hidden;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-content img {
+  width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
+}
+
+.modal-description {
+  padding: 30px;
+  color: white;
+  text-align: left;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.modal-description h2 {
+  color: gold;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3em;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.5);
+  padding-bottom: 10px;
+}
+
+.modal-description p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  color: gold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+.close:hover,
+.close:focus {
+  color: #fff;
+  transform: rotate(90deg);
+  background: rgba(255, 0, 0, 0.7);
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 95%;
+    margin: 10px;
+  }
+
+  .modal-content img {
+    max-height: 50vh;
+  }
+
+  .modal-description {
+    padding: 20px;
+  }
+
+  .modal-description h2 {
+    font-size: 1.4em;
+  }
+
+  .modal-description p {
+    font-size: 1em;
+  }
+
+  .close {
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+  }
+}

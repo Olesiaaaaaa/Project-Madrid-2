@@ -1,0 +1,485 @@
+/* =========================================
+   1. БАЗОВЫЕ НАСТРОЙКИ И СБРОС
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  min-height: 100vh;
+  color: white;
+  background-color: #1a1a2e;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* =========================================
+   2. ФОН СТРАНИЦЫ MONTSERRAT
+   ========================================= */
+body.montserrat-bg {
+  background-image: url('../images/fon-montserrat.JPG');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* =========================================
+   3. ОСНОВНОЙ КОНТЕНТ
+   ========================================= */
+.main-content {
+  margin-left: 250px;
+  margin-right: 250px;
+  min-height: 100vh;
+  padding: 60px 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.main-content h1 {
+  text-align: center;
+  font-size: 3em;
+  color: gold;
+  border-bottom: 3px solid gold;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.inner-page {
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.inner-page h1 {
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+
+.inner-page p {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+/* =========================================
+   4. КНОПКА "НА ГЛАВНУЮ"
+   ========================================= */
+.back-button {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  padding: 10px 25px;
+  background: linear-gradient(135deg, gold 0%, #ffa500 100%);
+  color: #000;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 7px rgba(255, 215, 0, 0.2);
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  z-index: 1000;
+}
+
+.back-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6);
+  background: linear-gradient(135deg, #ffa500 0%, gold 100%);
+}
+
+.back-button:active {
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   5. ДЕКОРАТИВНЫЕ ЛАСТОЧКИ
+   ========================================= */
+.swallows-decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.decor-swallow {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  perspective: 800px;
+}
+
+.decor-swallow img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: saturate(1.7) contrast(1.15) brightness(1.05)
+    drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.decor-swallow:hover img {
+  animation: swallow-flip 1.2s ease-in-out;
+  filter: saturate(1.9) contrast(1.2) brightness(1.1)
+    drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes swallow-flip {
+  0% {
+    transform: rotateX(0deg) scale(1);
+  }
+  45% {
+    transform: rotateX(180deg) scale(0.85);
+  }
+  75% {
+    transform: rotateX(360deg) scale(1.1);
+  }
+  100% {
+    transform: rotateX(360deg) scale(1);
+  }
+}
+
+.swallow-flying-1 {
+  top: 15%;
+  left: 10%;
+  width: 90px;
+  transform: rotate(-15deg);
+}
+.swallow-flying-2 {
+  top: 8%;
+  left: 28%;
+  width: 70px;
+  transform: rotate(-10deg) scaleX(-1);
+}
+.swallow-flying-3 {
+  top: 12%;
+  left: 46%;
+  width: 80px;
+  transform: rotate(-20deg);
+}
+.swallow-flying-4 {
+  top: 6%;
+  left: 64%;
+  width: 65px;
+  transform: rotate(-8deg) scaleX(-1);
+}
+.swallow-flying-5 {
+  top: 18%;
+  left: 80%;
+  width: 75px;
+  transform: rotate(-18deg);
+}
+.swallow-flying-6 {
+  top: 26%;
+  left: 22%;
+  width: 60px;
+  transform: rotate(-12deg) scaleX(-1);
+}
+.swallow-flying-7 {
+  top: 28%;
+  left: 58%;
+  width: 70px;
+  transform: rotate(-25deg);
+}
+.swallow-flying-8 {
+  top: 33%;
+  left: 8%;
+  width: 55px;
+  transform: rotate(-5deg);
+}
+.swallow-flying-9 {
+  top: 36%;
+  left: 78%;
+  width: 60px;
+  transform: rotate(-15deg) scaleX(-1);
+}
+.swallow-flying-10 {
+  top: 22%;
+  left: 40%;
+  width: 50px;
+  transform: rotate(-30deg);
+}
+.swallow-flying-11 {
+  top: 9%;
+  left: 88%;
+  width: 55px;
+  transform: rotate(-12deg);
+}
+.swallow-flying-12 {
+  top: 42%;
+  left: 35%;
+  width: 65px;
+  transform: rotate(-10deg) scaleX(-1);
+}
+.swallow-flying-13 {
+  top: 5%;
+  left: 6%;
+  width: 60px;
+  transform: rotate(-22deg) scaleX(-1);
+}
+
+.swallow-sitting-1 {
+  top: 40%;
+  right: 15%;
+  width: 75px;
+  transform: rotate(5deg);
+}
+.swallow-sitting-2 {
+  top: 55%;
+  left: 12%;
+  width: 60px;
+  transform: rotate(-3deg) scaleX(-1);
+}
+.swallow-sitting-3 {
+  top: 60%;
+  left: 30%;
+  width: 55px;
+  transform: rotate(4deg);
+}
+.swallow-sitting-4 {
+  top: 50%;
+  left: 65%;
+  width: 65px;
+  transform: rotate(-5deg);
+}
+.swallow-sitting-5 {
+  top: 65%;
+  left: 72%;
+  width: 60px;
+  transform: rotate(3deg) scaleX(-1);
+}
+.swallow-sitting-6 {
+  top: 70%;
+  left: 18%;
+  width: 50px;
+  transform: rotate(-4deg);
+}
+.swallow-sitting-7 {
+  top: 75%;
+  left: 45%;
+  width: 55px;
+  transform: rotate(5deg) scaleX(-1);
+}
+.swallow-sitting-8 {
+  top: 58%;
+  left: 86%;
+  width: 50px;
+  transform: rotate(-3deg);
+}
+.swallow-sitting-9 {
+  top: 80%;
+  left: 65%;
+  width: 45px;
+  transform: rotate(4deg);
+}
+.swallow-sitting-10 {
+  top: 48%;
+  left: 25%;
+  width: 55px;
+  transform: rotate(-5deg) scaleX(-1);
+}
+.swallow-sitting-11 {
+  top: 68%;
+  left: 90%;
+  width: 45px;
+  transform: rotate(3deg);
+}
+.swallow-sitting-12 {
+  top: 82%;
+  left: 10%;
+  width: 50px;
+  transform: rotate(-4deg) scaleX(-1);
+}
+.swallow-sitting-13 {
+  top: 72%;
+  left: 55%;
+  width: 48px;
+  transform: rotate(5deg);
+}
+
+/* =========================================
+   6. АДАПТИВНОСТЬ
+   ========================================= */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 30px 20px;
+  }
+
+  .main-content h1 {
+    font-size: 2em;
+  }
+
+  .back-button {
+    top: auto;
+    bottom: 30px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80%;
+    text-align: center;
+  }
+
+  .back-button:hover {
+    transform: translateX(50%) translateY(-3px);
+  }
+
+  .swallow-flying-2,
+  .swallow-flying-4,
+  .swallow-flying-6,
+  .swallow-flying-8,
+  .swallow-flying-10,
+  .swallow-flying-11,
+  .swallow-flying-12,
+  .swallow-flying-13,
+  .swallow-sitting-2,
+  .swallow-sitting-4,
+  .swallow-sitting-6,
+  .swallow-sitting-8,
+  .swallow-sitting-10,
+  .swallow-sitting-11,
+  .swallow-sitting-12,
+  .swallow-sitting-13 {
+    display: none;
+  }
+
+  .swallow-flying-1 {
+    width: 60px;
+    top: 10%;
+    left: 5%;
+  }
+  .swallow-flying-3 {
+    width: 50px;
+  }
+  .swallow-flying-5 {
+    width: 45px;
+  }
+  .swallow-flying-7 {
+    width: 45px;
+  }
+  .swallow-flying-9 {
+    width: 40px;
+  }
+  .swallow-sitting-1 {
+    width: 50px;
+    top: 35%;
+    right: 10%;
+  }
+  .swallow-sitting-3 {
+    width: 40px;
+  }
+  .swallow-sitting-5 {
+    width: 40px;
+  }
+  .swallow-sitting-7 {
+    width: 38px;
+  }
+  .swallow-sitting-9 {
+    width: 35px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   7. МОДАЛЬНОЕ ОКНО С ДОРОЖКОЙ ПРОГРЕССА
+   ═══════════════════════════════════════════════════ */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.info-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+}
+
+.info-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.info-modal.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.info-modal-content {
+  position: relative;
+  max-width: 600px;
+  max-height: 80vh;
+  border-radius: 85px;
+  padding: 5px;
+  overflow: hidden;
+  background: conic-gradient(
+    from 0deg,
+    rgb(155, 143, 70) 0deg,
+    #0bb928 var(--border-angle),
+    rgba(255, 215, 0, 0.15) var(--border-angle),
+    rgba(255, 215, 0, 0.15) 360deg
+  );
+  transform: scale(0.7);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.info-modal.show .info-modal-content {
+  transform: scale(1);
+  animation: fill-border 6s linear forwards;
+}
+
+@keyframes fill-border {
+  from {
+    --border-angle: 0deg;
+  }
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+.info-modal-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 80px;
+  background: #1a1a2e;
+}
+
+@media (max-width: 768px) {
+  .info-modal-content {
+    max-width: 90%;
+    max-height: 70vh;
+  }
+}

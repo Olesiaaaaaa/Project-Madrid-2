@@ -1,0 +1,169 @@
+/* Кнопка "Фотогалерея" — фиксированная под кнопкой "На главную" */
+.gallery-toggle-btn {
+  position: fixed;
+  top: 85px;
+  right: 20px;
+  padding: 10px 25px;
+  background: linear-gradient(135deg, gold 0%, #ffa500 100%);
+  color: #000;
+  border: 2px solid gold;
+  border-radius: 50px;
+  font-size: 0.95em;
+  font-weight: 600;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gallery-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+  background: linear-gradient(135deg, #ffa500 0%, gold 100%);
+}
+
+.gallery-toggle-btn:active {
+  transform: translateY(0);
+}
+
+.gallery-toggle-btn i {
+  font-size: 1em;
+}
+
+/* Аккордеон */
+.accordion {
+  max-width: 800px;
+  margin: 30px auto;
+  width: 100%;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.accordion-header {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 0, 0, 0.8),
+    rgba(0, 0, 139, 0.8)
+  );
+  color: #fff;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Georgia', serif;
+}
+
+.accordion-header:hover {
+  background: linear-gradient(135deg, rgba(139, 0, 0, 1), rgba(0, 0, 139, 1));
+}
+
+.accordion-header.active {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.9),
+    rgba(255, 165, 0, 0.9)
+  );
+  color: #000;
+}
+
+.accordion-header::after {
+  content: '+';
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.accordion-content.show {
+  max-height: 1500px;
+}
+
+.accordion-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  margin: 0 0 10px 0;
+}
+.accordion-img:hover {
+  transform: scale(1.02);
+}
+.description {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 15px;
+  border-radius: 0 0 8px 8px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.description h3 {
+  color: gold;
+  margin-bottom: 8px;
+  font-size: 1.2em;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  padding-bottom: 5px;
+}
+
+.description p {
+  color: #fff;
+  line-height: 1.6;
+  text-align: center;
+  font-size: 0.95em;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .gallery-toggle-btn {
+    top: 75px;
+    right: 15px;
+    padding: 8px 18px;
+    font-size: 0.85em;
+  }
+
+  .accordion {
+    max-width: 100%;
+    margin: 20px auto;
+  }
+
+  .accordion-header {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+
+  .description h3 {
+    font-size: 1.1em;
+  }
+
+  .description p {
+    font-size: 0.9em;
+  }
+}

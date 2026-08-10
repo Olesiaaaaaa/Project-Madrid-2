@@ -1,0 +1,368 @@
+/* =========================================
+   1. Базовые настройки и сброс
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Плавная прокрутка по странице */
+}
+
+body {
+  font-family: 'Georgia', serif;
+  min-height: 100vh;
+  color: white;
+  /* Базовый фон (запасной вариант и цвет подложки) */
+  background-color: #1a1a2e;
+  background-image: url('../images/1fon-Las-Ventas.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* =========================================
+   2. Боковые меню (Десктоп)
+   ========================================= */
+.sidebar-left,
+.sidebar-right {
+  width: 250px;
+  padding: 40px 20px;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-left {
+  left: 0;
+  background: rgba(139, 0, 0, 0.55);
+  border-right: 3px solid gold;
+}
+
+.sidebar-right {
+  right: 0;
+  background: rgba(0, 0, 139, 0.55);
+  border-left: 3px solid gold;
+}
+
+/* =========================================
+   3. Основной контент
+   ========================================= */
+.main-content {
+  margin-left: 250px;
+  margin-right: 250px;
+  min-height: 100vh;
+  padding: 60px 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.main-content h1 {
+  text-align: center;
+  font-size: 3em;
+  color: gold; /* 💡 Попробуйте здесь #9b59b6 (фиолетовый), если захочется эксперимента! */
+  border-bottom: 3px solid gold;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+/* Стили для внутренних страниц (без бокового меню) */
+.inner-page {
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.inner-page h1 {
+  margin-bottom: 10px;
+}
+
+.inner-page p {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 40px; /* Отступ до кнопки "На главную" */
+}
+
+/* =========================================
+   4. Пункты меню и анимации
+   ========================================= */
+.menu-item {
+  display: block;
+  padding: 20px;
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 2px solid transparent;
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Улучшает читаемость */
+}
+
+.menu-item h3 {
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.menu-item p {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+/* Шахматный порядок для левого меню */
+.sidebar-left .menu-item:nth-child(odd) {
+  background: rgba(139, 0, 0, 0.6);
+  transform: translateX(-10px);
+}
+
+.sidebar-left .menu-item:nth-child(even) {
+  background: rgba(255, 215, 0, 0.3);
+  transform: translateX(10px);
+  color: #000;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Белая тень для чёрного текста */
+}
+
+/* Шахматный порядок для правого меню */
+.sidebar-right .menu-item:nth-child(odd) {
+  background: rgba(0, 0, 139, 0.6);
+  transform: translateX(10px);
+}
+
+.sidebar-right .menu-item:nth-child(even) {
+  background: rgba(255, 215, 0, 0.3);
+  transform: translateX(-10px);
+  color: #000;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Эффект при наведении (без !important, комбинируем трансформации) */
+.sidebar-left .menu-item:nth-child(odd):hover {
+  transform: translateX(-10px) scale(1.05);
+}
+.sidebar-left .menu-item:nth-child(even):hover {
+  transform: translateX(10px) scale(1.05);
+}
+.sidebar-right .menu-item:nth-child(odd):hover {
+  transform: translateX(10px) scale(1.05);
+}
+.sidebar-right .menu-item:nth-child(even):hover {
+  transform: translateX(-10px) scale(1.05);
+}
+
+.menu-item:hover {
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+  border-color: gold;
+}
+
+/* =========================================
+   5. Фоны внутренних страниц (Оптимизировано)
+   ========================================= */
+body.las-ventas-bg,
+body.montserrat-bg,
+body.real-madrid-bg,
+body.madrid-bg {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+body.las-ventas-bg {
+  background-image: url('../images/fon_las-ventas.JPG');
+}
+body.montserrat-bg {
+  background-image: url('../images/fon-montserrat.JPG');
+}
+body.real-madrid-bg {
+  background-image: url('../images/fon-real-madrid.JPG');
+}
+body.madrid-bg {
+  background-image: url('../images/fon-madrid.JPG');
+}
+
+/* =========================================
+   6. Элементы интерфейса (Иконки и кнопки)
+   ========================================= */
+.crown-icon {
+  color: gold;
+  margin-right: 10px;
+  font-size: 0.6em;
+  vertical-align: middle;
+}
+
+.back-button {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  padding: 10px 25px;
+  background: linear-gradient(135deg, gold 0%, #ffa500 100%);
+  color: #000;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 7px rgba(255, 215, 0, 0.2);
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  z-index: 1000;
+}
+
+.back-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6);
+  background: linear-gradient(135deg, #ffa500 0%, gold 100%);
+}
+
+.back-button:active {
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   7. Адаптивность (Мобильные устройства)
+   ========================================= */
+@media (max-width: 1024px) {
+  .sidebar-left,
+  .sidebar-right {
+    width: 200px;
+  }
+  .main-content {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Вместо полного скрытия делаем меню компактным сверху и снизу */
+  .sidebar-left,
+  .sidebar-right {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border: none;
+    border-bottom: 3px solid gold;
+  }
+
+  .sidebar-right {
+    border-top: 3px solid gold;
+    border-bottom: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 30px 20px;
+  }
+
+  .main-content h1 {
+    font-size: 2em;
+  }
+
+  /* На мобильных убираем шахматный сдвиг, чтобы не ломать верстку, но оставляем цвета */
+  .sidebar-left .menu-item,
+  .sidebar-right .menu-item {
+    transform: none !important;
+    margin: 10px 0;
+  }
+
+  .menu-item:hover {
+    transform: scale(1.02) !important; /* Легкое увеличение вместо сдвига */
+  }
+
+  .back-button {
+    top: auto;
+    bottom: 30px; /* На мобильных кнопку удобнее держать внизу */
+    right: 50%;
+    transform: translateX(50%);
+    width: 80%;
+    text-align: center;
+  }
+
+  .back-button:hover {
+    transform: translateX(50%) translateY(-3px);
+  }
+}
+/* Галерея изображений для страницы Madrid - компактный вариант */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 8px auto;
+  padding: 0 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  width: 180px; /* Фиксированная ширина */
+  height: 130px; /* Фиксированная высота */
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+  border-color: gold;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 768px) {
+  .image-gallery {
+    gap: 15px;
+  }
+
+  .gallery-item {
+    width: 220px;
+    height: 150px;
+  }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 480px) {
+  .image-gallery {
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .gallery-item {
+    width: 100%;
+    max-width: 280px;
+    height: 160px;
+  }
+}
+.inner-page h1 {
+  font-size: 2em;
+}
